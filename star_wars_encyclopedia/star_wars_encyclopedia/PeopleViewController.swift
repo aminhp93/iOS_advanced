@@ -13,23 +13,35 @@ class PeopleViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        let url = NSURL(string: "http://swapi.co/api/people/")
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
+            
+            
+        var count = 0
+        var url = NSURL(string: "http://swapi.co/api/people/")
         let session = NSURLSession.sharedSession()
-        
-        let task = session.dataTaskWithURL(url!) { (data, response, error) in
-            print("in here")
-//            print(data)
+            
+//        while(count < 10){
+//            count += 1
+
+    
+        var task = session.dataTaskWithURL(url!) { (data, response, error) in
             
             do {
-                if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-//                    print(jsonResult)
+                if var jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+                    
                     if let results = jsonResult["results"]{
-                        print(results)
                         let resulsArray = results as! NSArray
-                        print(resulsArray.count)
-                        print(resulsArray.firstObject)
+                        for i in resulsArray{
+                            self.people.append(i["name"] as! String)
+                        }
+                        dispatch_async(dispatch_get_main_queue()){
+                            self.tableView.reloadData()
+                        }
+
                     }
+//                        url = NSURL(string: jsonResult["next"] as! String)
+//                        print(url)
+                    
                 }
             } catch {
                 print("Something went wrong")
@@ -37,6 +49,8 @@ class PeopleViewController: UITableViewController {
             
         }
         task.resume()
+//            }
+        }
         
     }
 
@@ -45,7 +59,8 @@ class PeopleViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var people = ["Luke SKywalker", "Leia Organa", "Han Solo", "C-3PO", "R2-D2"]
+//    var people = ["Luke SKywalker", "Leia Organa", "Han Solo", "C-3PO", "R2-D2"]
+    var people = [String]()
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return people.count
