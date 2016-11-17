@@ -53,16 +53,14 @@ class ViewController: UITableViewController, CancelButtonDelegate, MissionDetail
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var url = NSURL(string: "http://localhost:3000/tasks")
-        let session = NSURLSession.sharedSession()
-        
-        var task = session.dataTaskWithURL(url!) { (data, response, error) in
-            
+        TaskModel.getAllTasks { (data, response, error) in
             do {
                 if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
                     print(jsonResult)
                     
                     if let results = jsonResult["results"]{
+                        
+                        print(results, "line 63")
                         let resulsArray = results as! NSArray
                         for i in resulsArray{
                             self.missions.append(i["objective"] as! String)
@@ -75,8 +73,8 @@ class ViewController: UITableViewController, CancelButtonDelegate, MissionDetail
             } catch {
                 print("Something went wrong")
             }
+
         }
-        task.resume()
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,6 +94,9 @@ class ViewController: UITableViewController, CancelButtonDelegate, MissionDetail
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         missions.removeAtIndex(indexPath.row)
+        TaskModel.deleteTaskWithObjective(String(indexPath.row)) { (data, response, error) in
+            print("delete success")
+        }
         tableView.reloadData()
     }
     

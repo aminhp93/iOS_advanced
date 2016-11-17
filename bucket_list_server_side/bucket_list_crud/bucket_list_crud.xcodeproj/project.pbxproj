@@ -17,6 +17,7 @@
 		27BD4C201DD154E300D60BF5 /* cancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD4C1F1DD154E300D60BF5 /* cancelButton.swift */; };
 		27BD4C221DD1556E00D60BF5 /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD4C211DD1556E00D60BF5 /* MissionDetailViewController.swift */; };
 		27BD4C241DD15D2400D60BF5 /* MissionDetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD4C231DD15D2400D60BF5 /* MissionDetailViewControllerDelegate.swift */; };
+		27C1F1961DDE33BA00DF2543 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1F1951DDE33BA00DF2543 /* TaskModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		27BD4C1F1DD154E300D60BF5 /* cancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cancelButton.swift; sourceTree = "<group>"; };
 		27BD4C211DD1556E00D60BF5 /* MissionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
 		27BD4C231DD15D2400D60BF5 /* MissionDetailViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailViewControllerDelegate.swift; sourceTree = "<group>"; };
+		27C1F1951DDE33BA00DF2543 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				27BD4BF11DD1516000D60BF5 /* AppDelegate.swift */,
 				27BD4BF31DD1516000D60BF5 /* ViewController.swift */,
+				27C1F1951DDE33BA00DF2543 /* TaskModel.swift */,
 				27BD4BF51DD1516000D60BF5 /* Main.storyboard */,
 				27BD4C211DD1556E00D60BF5 /* MissionDetailViewController.swift */,
 				27BD4C231DD15D2400D60BF5 /* MissionDetailViewControllerDelegate.swift */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C1F1961DDE33BA00DF2543 /* TaskModel.swift in Sources */,
 				27BD4C241DD15D2400D60BF5 /* MissionDetailViewControllerDelegate.swift in Sources */,
 				27BD4C221DD1556E00D60BF5 /* MissionDetailViewController.swift in Sources */,
 				27BD4BF41DD1516000D60BF5 /* ViewController.swift in Sources */,
