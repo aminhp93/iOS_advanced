@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UITableViewController {
+class SecondViewController: UITableViewController, CancelButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,11 @@ class SecondViewController: UITableViewController {
                         let resultsArray = results as! NSArray
                         
                         for i in resultsArray{
-                            self.people.append(i["title"] as! String)
+                            self.films.append(i["title"] as! String)
+                            self.release_date.append(i["release_date"] as! String)
+                            self.director.append(i["director"] as! String)
+                            self.opening_crawl.append(i["opening_crawl"] as! String)
+
                         }
                         
                         dispatch_async(dispatch_get_main_queue(), {
@@ -41,20 +45,43 @@ class SecondViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var people = [String]()
+    var films = [String]()
+    var release_date = [String]()
+    var director = [String]()
+    var opening_crawl = [String]()
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        return films.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+//        let cell = UITableViewCell()
         //        print(indexPath, "____")
-        cell.textLabel?.text = people[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("filmCell")!
+        cell.textLabel?.text = films[indexPath.row]
         
         return cell
     }
 
-
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("viewFilm", sender: tableView.cellForRowAtIndexPath(indexPath))
+    }
+    
+    func cancelButtonDelegate(controller: UIViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = segue.destinationViewController as! FilmDetailController
+        controller.cancelButton = self
+        
+        if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell){
+            controller.title_name = films[indexPath.row]
+            controller.release_date = release_date[indexPath.row]
+            controller.director = director[indexPath.row]
+            controller.opening_crawl = opening_crawl[indexPath.row]
+        }
+        
+    }
 }
 

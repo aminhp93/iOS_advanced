@@ -68,7 +68,7 @@ class PeopleViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-//        print(indexPath, "____")
+        print(indexPath, "____")
         cell.textLabel?.text = people[indexPath.row]
         
         return cell

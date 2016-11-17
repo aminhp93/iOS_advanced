@@ -16,6 +16,9 @@
 		27D2D3571DDCF7810042B5B6 /* mvc_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D2D3561DDCF7810042B5B6 /* mvc_iOSTests.swift */; };
 		27D2D3621DDCF7810042B5B6 /* mvc_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D2D3611DDCF7810042B5B6 /* mvc_iOSUITests.swift */; };
 		27D2D3701DDCF8030042B5B6 /* StarWarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D2D36F1DDCF8030042B5B6 /* StarWarsModel.swift */; };
+		27D2D3721DDD030E0042B5B6 /* PeopleDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D2D3711DDD030E0042B5B6 /* PeopleDetailController.swift */; };
+		27D2D3741DDD1E350042B5B6 /* CancelButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D2D3731DDD1E350042B5B6 /* CancelButtonDelegate.swift */; };
+		27D2D3761DDD206B0042B5B6 /* FilmDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D2D3751DDD206B0042B5B6 /* FilmDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		27D2D3611DDCF7810042B5B6 /* mvc_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mvc_iOSUITests.swift; sourceTree = "<group>"; };
 		27D2D3631DDCF7810042B5B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D2D36F1DDCF8030042B5B6 /* StarWarsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsModel.swift; sourceTree = "<group>"; };
+		27D2D3711DDD030E0042B5B6 /* PeopleDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailController.swift; sourceTree = "<group>"; };
+		27D2D3731DDD1E350042B5B6 /* CancelButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButtonDelegate.swift; sourceTree = "<group>"; };
+		27D2D3751DDD206B0042B5B6 /* FilmDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +108,12 @@
 			isa = PBXGroup;
 			children = (
 				27D2D33F1DDCF7810042B5B6 /* AppDelegate.swift */,
+				27D2D3731DDD1E350042B5B6 /* CancelButtonDelegate.swift */,
 				27D2D3411DDCF7810042B5B6 /* FirstViewController.swift */,
+				27D2D3711DDD030E0042B5B6 /* PeopleDetailController.swift */,
 				27D2D36F1DDCF8030042B5B6 /* StarWarsModel.swift */,
 				27D2D3431DDCF7810042B5B6 /* SecondViewController.swift */,
+				27D2D3751DDD206B0042B5B6 /* FilmDetailController.swift */,
 				27D2D3451DDCF7810042B5B6 /* Main.storyboard */,
 				27D2D3481DDCF7810042B5B6 /* Assets.xcassets */,
 				27D2D34A1DDCF7810042B5B6 /* LaunchScreen.storyboard */,
@@ -265,7 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D2D3721DDD030E0042B5B6 /* PeopleDetailController.swift in Sources */,
+				27D2D3761DDD206B0042B5B6 /* FilmDetailController.swift in Sources */,
 				27D2D3441DDCF7810042B5B6 /* SecondViewController.swift in Sources */,
+				27D2D3741DDD1E350042B5B6 /* CancelButtonDelegate.swift in Sources */,
 				27D2D3401DDCF7810042B5B6 /* AppDelegate.swift in Sources */,
 				27D2D3701DDCF8030042B5B6 /* StarWarsModel.swift in Sources */,
 				27D2D3421DDCF7810042B5B6 /* FirstViewController.swift in Sources */,
