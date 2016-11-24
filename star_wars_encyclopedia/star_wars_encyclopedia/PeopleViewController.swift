@@ -16,41 +16,60 @@ class PeopleViewController: UITableViewController {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
             
             
-        var count = 0
-        var url = NSURL(string: "http://swapi.co/api/people/")
-        let session = NSURLSession.sharedSession()
-            
-//        while(count < 10){
-//            count += 1
-
-    
-        var task = session.dataTaskWithURL(url!) { (data, response, error) in
-            
-            do {
-                if var jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-                    
-                    if let results = jsonResult["results"]{
-                        let resulsArray = results as! NSArray
-                        for i in resulsArray{
-                            self.people.append(i["name"] as! String)
-                        }
-                        dispatch_async(dispatch_get_main_queue()){
-                            self.tableView.reloadData()
-                        }
-
-                    }
-//                        url = NSURL(string: jsonResult["next"] as! String)
-//                        print(url)
-                    
-                }
-            } catch {
-                print("Something went wrong")
-            }
-            
-        }
-        task.resume()
+//        var url = NSURL(string: "http://swapi.co/api/people/")
+//        let session = NSURLSession.sharedSession()
+//    
+//        var task = session.dataTaskWithURL(url!) { (data, response, error) in
+//            
+//            do {
+//                if var jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+//                    
+//                    if let results = jsonResult["results"]{
+//                        let resulsArray = results as! NSArray
+//                        for i in resulsArray{
+//                            self.people.append(i["name"] as! String)
+//                        }
+//                        dispatch_async(dispatch_get_main_queue()){
+//                            self.tableView.reloadData()
+//                        }
+//
+//                    }
+//                }
+//            } catch {
+//                print("Something went wrong")
 //            }
+//            
+//        }
+//        task.resume()
+//        }
+            
+            var url = NSURL(string: "http://54.149.200.68/users")
+            let session = NSURLSession.sharedSession()
+            
+            var task = session.dataTaskWithURL(url!) { (data, response, error) in
+                
+                do {
+                    if var jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+                            print(jsonResult)
+//                        if let results = jsonResult["results"]{
+//                            let resulsArray = results as! NSArray
+//                            for i in resulsArray{
+//                                self.people.append(i["name"] as! String)
+//                            }
+//                            dispatch_async(dispatch_get_main_queue()){
+//                                self.tableView.reloadData()
+//                            }
+//                            
+//                        }
+                    }
+                } catch {
+                    print("Something went wrong")
+                }
+                
+            }
+            task.resume()
         }
+
         
     }
 
